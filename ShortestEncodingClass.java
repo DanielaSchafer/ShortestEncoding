@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str = "abcbcbca";
+		String str = "bcbc";
 		char[] letters = turnIntoCharArray(str);
 
 		//System.out.println(isPattern(letters,0,0));
@@ -33,7 +33,7 @@ public class ShortestEncodingClass {
 
 
 
-
+	//gets the repetition of single characters
 	public static void getNotationFirstTime(char[] letters, ArrayList<String> pattern, ArrayList<Integer> numOfApp)
 	{
 		for(int i = 0; i<letters.length; i++)
@@ -58,49 +58,80 @@ public class ShortestEncodingClass {
 		}
 	}
 
+	//notation of everything after single characters
 	public static void getNotation(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int counter, ArrayList<String> pattern, ArrayList<Integer> repNums)
 	{
-		System.out.println("letters " + letters);
-		System.out.println("repsOfPatterns " + repsOfPatterns);
+		System.out.println( letters);
+		System.out.println(repsOfPatterns);
 
+		int remainderStart = (letters.size() - counter)+1;
+
+		//base case: if the pattern is larger than half of
 		if(counter >letters.size()/2) {
-			System.out.println("hello");
 			String patternStr = "";
 
 			for(int j = 0; j<letters.size(); j++)
 			{
-				System.out.println("hello2 "+patternStr);
-				if(letters.get(j).length() >1 && repsOfPatterns.get(j)>1)
-					patternStr = patternStr +Integer.toString(repsOfPatterns.get(j))+ "("+letters.get(j)+")";
-				else if(letters.get(j).length() == 1 && repsOfPatterns.get(j)>1)
-					patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+letters.get(j);
-				else if(repsOfPatterns.get(j) == 1 && letters.get(j).length() >1)
-					patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+"("+letters.get(j)+")";
-				else
-					patternStr = patternStr+letters.get(j);
+				//System.out.println("letters " +letters);
+				if(j<letters.size()) {
+					System.out.println("hello2 "+patternStr);
+					if(letters.get(j).length() >1 && repsOfPatterns.get(j)>1)
+						patternStr = patternStr +Integer.toString(repsOfPatterns.get(j))+ "("+letters.get(j)+")";
+					else if(letters.get(j).length() == 1 && repsOfPatterns.get(j)>1)
+						patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+letters.get(j);
+					else if(repsOfPatterns.get(j) == 1 && letters.get(j).length() >1)
+						patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+"("+letters.get(j)+")";
+					else
+						patternStr = patternStr+letters.get(j);
+				}
 			}
-
 			System.out.println(patternStr);
 			return;
 		}
 
+		//iterates through all the elements in the array to see if there are any patterns of length counter
 		for(int i = 0; i<letters.size(); i++)
 		{
-			System.out.println("on letter: "+letters.get(i));
+			/*if(i == remainderStart)
+			{
+				//System.out.println("remainderStart");
+				String patternStr = "";
+				for(int j = remainderStart; j<letters.size(); j++)
+				{
+					if(letters.get(i).length() >1) {
+						//System.out.println(letters.get(i)+" bigger than one");
+						patternStr = patternStr +Integer.toString(repsOfPatterns.get(i))+ "("+letters.get(i)+")";
+					}
+					else if(repsOfPatterns.get(i) == 1){
+						//System.out.println(letters.get(i)+ " length one");
+						patternStr = patternStr+letters.get(i);
+					}
+					else
+						patternStr = patternStr+Integer.toString(repsOfPatterns.get(i))+letters.get(i);
+				}
+				System.out.println("str " +patternStr);
+				pattern.add(patternStr);
+				repNums.add(repsOfPatterns.get(i));
+			}*/
+
+
+			//System.out.println("on letter: "+letters.get(i));
 			int reps = isPattern(letters,i,i+counter-1);
-			int reps2 = isPatternInt(repsOfPatterns,i,i+counter-1);
+			int reps2 = isPatternInt(repsOfPatterns,i,i+counter-1)-1;
+			//System.out.println("reps "+reps + " reps2 " +reps2);
 			if(reps>1 && reps == reps2)
 			{
+				//System.out.println("REPETITION");
 				String patternStr = "";
 				for(int j = i; j<i+counter;j++)
 				{
 					if(j<letters.size()) {
 						if(letters.get(j).length() >1) {
-							System.out.println(letters.get(j)+" bigger than one");
+							//System.out.println(letters.get(j)+" bigger than one");
 							patternStr = patternStr +Integer.toString(repsOfPatterns.get(j))+ "("+letters.get(j)+")";
 						}
 						else if(repsOfPatterns.get(j) == 1){
-							System.out.println(letters.get(j)+ " length one");
+							//System.out.println(letters.get(j)+ " length one");
 							patternStr = patternStr+letters.get(j);
 						}
 						else
@@ -110,37 +141,39 @@ public class ShortestEncodingClass {
 				System.out.println("str " +patternStr);
 				pattern.add(patternStr);
 				repNums.add(reps);
-				i = i+((reps)*counter);
-				System.out.println("i: " +i +" reps: " +reps);
-
+				//System.out.println(repNums);
+				i = i+((reps)*counter)-1;
+				//System.out.println("i: " +i +" reps: " +reps);
 			}
 			else
 			{
+				System.out.println("NO REPETITION");
 				String patternStr = "";
 
 				if(letters.get(i).length() >1) {
-					System.out.println(letters.get(i)+" bigger than one");
+					//System.out.println(letters.get(i)+" bigger than one");
 					patternStr = patternStr +Integer.toString(repsOfPatterns.get(i))+ "("+letters.get(i)+")";
 				}
 				else if(repsOfPatterns.get(i) == 1){
-					System.out.println(letters.get(i)+ " length one");
+					//System.out.println(letters.get(i)+ " length one");
 					patternStr = patternStr+letters.get(i);
 				}
 				else
 					patternStr = patternStr+Integer.toString(repsOfPatterns.get(i))+letters.get(i);
 
+				System.out.println("i: " +i +" reps: " +reps);
+				System.out.println("str " +patternStr);
 				pattern.add(patternStr);
 				repNums.add(reps);
+				System.out.println(repNums);
 			}
 		}
 		ArrayList<String> p = new ArrayList<String>();
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 
-		System.out.println("pattern " + pattern);
-
 		if(pattern.isEmpty())
 		{
-			System.out.println("empty pattern");
+			System.out.println("empty pattern" + pattern);
 			getNotation(letters,repsOfPatterns,counter+1,p,nums);
 		}
 		else
