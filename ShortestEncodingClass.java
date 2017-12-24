@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str = "cccccbcbcb";
+		String str = "abcbcbca";
 		char[] letters = turnIntoCharArray(str);
 
 		//System.out.println(isPattern(letters,0,1));
@@ -79,10 +79,35 @@ public class ShortestEncodingClass {
 		//iterates through all the elements in the array to see if there are any patterns of length counter
 		for(int i = 0; i<letters.size(); i++)
 		{
+			System.out.println(letters+"\n"+repsOfPatterns);
+			System.out.println("length " + +letters.size()+ " i "+ i+ " -- "+(i+counter-1));
 			int fullIndexStart = getFullIndex(letters, repsOfPatterns, full, i);
 			int fullIndexEnd = getFullIndex(letters, repsOfPatterns, full, i+counter-1);
 
 			int reps = getReps(full,fullIndexStart,fullIndexEnd);
+
+			if(i == 0 && fullIndexStart != 0)
+			{
+				System.out.println("OVERLAP");
+				letters.add(i+1,letters.get(i));
+				repsOfPatterns.add(i+1,1);
+				repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
+				if(repsOfPatterns.get(i) == 0)
+				{
+					letters.remove(i);
+					repsOfPatterns.remove(i);
+				}
+				System.out.println("full1 " +full);
+				full = makeFullArray(letters,repsOfPatterns);
+				System.out.println("full2 " +full);
+
+				pattern.add(letters.get(i));
+				repNums.add(repsOfPatterns.get(i));
+				System.out.println("new2 "+ repsOfPatterns);
+				System.out.println("repNums "+repNums);
+				i++;
+
+			}
 
 			System.out.println("reps "+reps);
 
@@ -113,10 +138,13 @@ public class ShortestEncodingClass {
 					}
 				}
 
+
 				pattern.add(patternStr);
 				repNums.add(reps);
 				System.out.println(repNums);
 				i = i+((reps)*counter)-1;
+
+				System.out.println("pattern "+pattern);
 
 			}
 			else
