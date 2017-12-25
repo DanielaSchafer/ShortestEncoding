@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str = "abcbcbca";
+		String str = "abbbcdcdcdabbbcdcdcd";
 		char[] letters = turnIntoCharArray(str);
 
 		//System.out.println(isPattern(letters,0,1));
@@ -67,7 +67,7 @@ public class ShortestEncodingClass {
 		//base case: if the pattern is larger than half of
 		if(counter >letters.size()/2) {
 			String patternStr = makeKey(letters,repsOfPatterns);
-			System.out.println("patt "+patternStr);
+			System.err.println("patt "+patternStr);
 			return;
 		}
 
@@ -79,91 +79,123 @@ public class ShortestEncodingClass {
 		//iterates through all the elements in the array to see if there are any patterns of length counter
 		for(int i = 0; i<letters.size(); i++)
 		{
-			System.out.println(letters+"\n"+repsOfPatterns);
-			System.out.println("length " + +letters.size()+ " i "+ i+ " -- "+(i+counter-1));
+			//System.out.println(letters+"\n"+repsOfPatterns);
+			//System.out.println("length " + +letters.size()+ " i "+ i+ " -- "+(i+counter-1));
+
 			int fullIndexStart = getFullIndex(letters, repsOfPatterns, full, i);
-			int fullIndexEnd = getFullIndex(letters, repsOfPatterns, full, i+counter-1);
 
-			int reps = getReps(full,fullIndexStart,fullIndexEnd);
+			System.out.println("pattern "+pattern);
 
-			if(i == 0 && fullIndexStart != 0)
+			if(fullIndexStart+counter > full.size()-1)
 			{
-				System.out.println("OVERLAP");
-				letters.add(i+1,letters.get(i));
-				repsOfPatterns.add(i+1,1);
-				repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
-				if(repsOfPatterns.get(i) == 0)
-				{
-					letters.remove(i);
-					repsOfPatterns.remove(i);
-				}
-				System.out.println("full1 " +full);
-				full = makeFullArray(letters,repsOfPatterns);
-				System.out.println("full2 " +full);
-
-				pattern.add(letters.get(i));
-				repNums.add(repsOfPatterns.get(i));
-				System.out.println("new2 "+ repsOfPatterns);
-				System.out.println("repNums "+repNums);
-				i++;
-
-			}
-
-			System.out.println("reps "+reps);
-
-			if(reps>1)
-			{
-				System.out.println("PATTERN");
-				String patternStr = "";
-
-				for(int j = i; j<i+counter;j++)
-				{
-					if(j<letters.size()) {
-						//if the length of the pattern is 2 and it repeats 2 times
-						//write out the whole pattern
-						if(letters.get(j).length() == 2 && reps == 2)
-							patternStr = patternStr +letters.get(j)+letters.get(j);
-						//if the length of the pattern is greater than one
-						//put a number and give it parenthesis
-						else if(full.get(j).length() >1) {
-							patternStr = patternStr +Integer.toString(repsOfPatterns.get(j))+ "("+letters.get(j)+")";
-						}
-						//if the length of the pattern is one
-						//put a number in front of it
-						else if(letters.get(j).length() == 1 && repsOfPatterns.get(j) >1){
-							patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+letters.get(j);
-						}
-						else
-							patternStr = patternStr+letters.get(j);
-					}
-				}
-
-
-				pattern.add(patternStr);
-				repNums.add(reps);
-				System.out.println(repNums);
-				i = i+((reps)*counter)-1;
-
-				System.out.println("pattern "+pattern);
-
-			}
-			else
-			{
-				pattern.add(letters.get(i));
+				System.out.println("adding "+ full.get(fullIndexStart)+" "+ fullIndexStart);
+				pattern.add(full.get(fullIndexStart));
 				repNums.add(1);
+			}
+			else {
+
+				int fullIndexEnd = getFullIndex(letters, repsOfPatterns, full, i+counter-1);
+
+				int reps = getReps(full,fullIndexStart,fullIndexEnd);
+
+
+
+				System.out.println("reps "+reps);
+
+				if(reps>1)
+				{
+
+					if(i == 0 && fullIndexStart != 0)
+					{
+						System.out.println("OVERLAP");
+						letters.add(i+1,letters.get(i));
+						repsOfPatterns.add(i+1,1);
+						repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
+						if(repsOfPatterns.get(i) == 0)
+						{
+							letters.remove(i);
+							repsOfPatterns.remove(i);
+						}
+						//System.out.println("full1 " +full);
+						full = makeFullArray(letters,repsOfPatterns);
+						//System.out.println("full2 " +full);
+
+						pattern.add(letters.get(i));
+						repNums.add(repsOfPatterns.get(i));
+						//System.out.println("new2 "+ repsOfPatterns);
+						//System.out.println("repNums "+repNums);
+						i++;
+
+					}
+
+					System.out.println("PATTERN");
+					String patternStr = "";
+
+					for(int j = i; j<i+counter;j++)
+					{
+						System.out.println("j "+ j);
+						System.out.println("size "+letters.size());
+						if(j<letters.size()) {
+							//if the length of the pattern is 2 and it repeats 2 times
+							//write out the whole pattern
+							if(letters.get(j).length() == 2 && reps == 2)
+								patternStr = patternStr +letters.get(j)+letters.get(j);
+							//if the length of the pattern is greater than one
+							//put a number and give it parenthesis
+							else if(full.get(j).length() >1) {
+								patternStr = patternStr +Integer.toString(repsOfPatterns.get(j))+ "("+letters.get(j)+")";
+							}
+							//if the length of the pattern is one
+							//put a number in front of it
+							else if(letters.get(j).length() == 1 && repsOfPatterns.get(j) >1){
+								patternStr = patternStr+Integer.toString(repsOfPatterns.get(j))+letters.get(j);
+							}
+							else
+								patternStr = patternStr+letters.get(j);
+						}
+					}
+
+
+					pattern.add(patternStr);
+					repNums.add(reps);
+					System.out.println(repNums);
+					i = i+((reps)*counter)-1;
+
+					System.out.println("pattern "+pattern);
+
+				}
+				else
+				{
+					pattern.add(letters.get(i));
+					repNums.add(repsOfPatterns.get(i));
+				}
 			}
 		}
 		ArrayList<String> p = new ArrayList<String>();
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 
-		if(pattern.isEmpty())
+		if(isEqual(letters,pattern))
 		{
 			getNotation(letters,repsOfPatterns,counter+1,p,nums);
 		}
 		else
 		{
-			getNotation(pattern, repNums, counter+1,p,nums);
+
+				getNotation(pattern, repNums, 1,p,nums);
 		}
+	}
+
+	public static boolean isEqual(ArrayList<String> arr1, ArrayList<String> arr2)
+	{
+		if(arr2.size() != arr1.size())
+			return false;
+
+		for(int i = 0; i<arr1.size(); i++)
+		{
+			if(arr1.get(i).equals(arr2.get(i)) == false)
+				return false;
+		}
+		return true;
 	}
 
 	public static int getFullIndex(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
