@@ -4,7 +4,7 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str = "abbbcdcdcd";
+		String str = "abcdeeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcddddeabcddddabcdddd";
 		char[] letters = turnIntoCharArray(str);
 
 		//System.out.println(isPattern(letters,0,1));
@@ -12,14 +12,14 @@ public class ShortestEncodingClass {
 		ArrayList<String> patternList = new ArrayList<String>();
 		ArrayList<Integer> numOfAppearances = new ArrayList<Integer>();
 		getNotationFirstTime(letters, patternList, numOfAppearances);
-		System.out.println(patternList);
-		System.out.println(numOfAppearances);
+		//System.out.println(patternList);
+		//System.out.println(numOfAppearances);
 
 		ArrayList<String> pList = new ArrayList<String>();
 		ArrayList<Integer> numReps = new ArrayList<Integer>();
 		System.err.println(getNotation(patternList,numOfAppearances,2,pList,numReps));
-		System.out.println(pList);
-		System.out.println(numReps);
+		//System.out.println(pList);
+		//System.out.println(numReps);
 
 		//getNotation(letters, 2,patternList, numOfAppearances);
 
@@ -61,35 +61,22 @@ public class ShortestEncodingClass {
 	//notation of everything after single characters
 	public static String getNotation(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int counter, ArrayList<String> pattern, ArrayList<Integer> repNums)
 	{
-		System.out.println(letters);
-		System.out.println(repsOfPatterns);
-
 		//base case: if the pattern is larger than half of
 		if(counter >letters.size()/2) {
 			String patternStr = makeKey(letters,repsOfPatterns);
-			System.out.println("patt "+patternStr);
 			return patternStr;
 		}
 
 		ArrayList<String> full = makeFullArray(letters,repsOfPatterns);
 
-		System.out.println("full    "+full);
-		System.out.println("letters "+letters);
-
 		//iterates through all the elements in the array to see if there are any patterns of length counter
 		for(int i = 0; i<letters.size(); i++)
 		{
-			//System.out.println(letters+"\n"+repsOfPatterns);
-			//System.out.println("length " + +repsOfPatterns.size()+ " i "+ i+ " -- "+(i+counter-1));
-			//System.out.println("full    "+full+"\n"+ "letters "+ letters);
-
+			//System.out.println("i "+i+" size "+ letters.size());
 			int fullIndexStart = getFullIndex(letters, repsOfPatterns, full, i);
 
-			//System.out.println("pattern "+pattern);
-
-			if(fullIndexStart+counter > full.size()-1)
+			if(fullIndexStart+counter > full.size()-1 || i+counter-1 >letters.size()-1)
 			{
-				//System.out.println("adding "+ full.get(fullIndexStart)+" "+ fullIndexStart);
 				pattern.add(full.get(fullIndexStart));
 				repNums.add(1);
 			}
@@ -98,8 +85,6 @@ public class ShortestEncodingClass {
 				int fullIndexEnd = getFullIndex(letters, repsOfPatterns, full, i+counter-1);
 
 				int reps = getReps(full,fullIndexStart,fullIndexEnd);
-
-				//System.out.println("reps "+reps);
 
 				if(reps>1)
 				{
@@ -115,19 +100,14 @@ public class ShortestEncodingClass {
 							letters.remove(i);
 							repsOfPatterns.remove(i);
 						}
-						//System.out.println("full1 " +full);
 						full = makeFullArray(letters,repsOfPatterns);
-						//System.out.println("full2 " +full);
 
 						pattern.add(letters.get(i));
 						repNums.add(repsOfPatterns.get(i));
-						//System.out.println("new2 "+ repsOfPatterns);
-						//System.out.println("repNums "+repNums);
 						i++;
-
 					}
 
-					System.out.println("PATTERN");
+					//System.out.println("PATTERN");
 					String patternStr = "";
 
 					ArrayList<String> newLetters = new ArrayList<String>();
@@ -143,11 +123,7 @@ public class ShortestEncodingClass {
 
 					pattern.add(patternStr);
 					repNums.add(reps);
-					System.out.println(repNums);
 					i = i+((reps)*counter)-1;
-
-					System.out.println("pattern "+pattern);
-
 				}
 				else
 				{
@@ -187,6 +163,10 @@ public class ShortestEncodingClass {
 
 	public static int getFullIndex(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
 	{
+		//System.out.println("GET FULL INDEX");
+		//System.out.println(letters+"\n"+repCount);
+		//System.out.println(letterIndex);
+		//System.out.println(letters.size());
 		int index = 0;
 		for(int i = 0; i<= letterIndex; i++)
 		{
@@ -194,11 +174,6 @@ public class ShortestEncodingClass {
 
 		}
 		return index-1;
-	}
-
-	public static void makeNewArray(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int patStart, int patEnd)
-	{
-
 	}
 
 	public static ArrayList<String> makeFullArray(ArrayList<String> letters, ArrayList<Integer> repCount)
@@ -220,31 +195,10 @@ public class ShortestEncodingClass {
 	{
 		int reps = getReps(letters,start,end);
 		int reps2 = getRepsInt(repCount,start,end,(reps*counter));
-		System.out.println("reps2 "+reps2 + " reps "+reps);
+		//System.out.println("reps2 "+reps2 + " reps "+reps);
 
 		if(reps>1 && reps == reps2)
 			return true;
-
-		/*if(reps == 2)
-		{
-			if(repCount.get(start) >= repCount.get(start+counter))
-				return true;
-		}
-
-		if(reps > 2)
-		{
-			int firstElementRep = repCount.get(start);
-			int secondElementRep = repCount.get(start+counter);
-			if(firstElementRep >= secondElementRep)
-			{
-				for(int i = 2; i<=reps; i++)
-				{
-					if(repCount.get(start+(counter*i)) != secondElementRep)
-						return false;
-				}
-				return true;
-			}
-		}*/
 
 		return false;
 
@@ -278,106 +232,6 @@ public class ShortestEncodingClass {
 	}
 
 	//---------------------------------------------------------------------------------------------------------------
-
-
-	/*//end is inclusive
-	public static String findKey(char[] letters, int start, int end, int counter, int lastPatternStart, int lastPatternEnd)
-	{
-		//print(letters,start,end);
-
-
-		int patternLength = (int)(((end-start)+1)/counter);
-		int ending = (patternLength+start)-1;
-		int remainder = (end - (patternLength*counter))-1;
-		String remainingLetters = "";
-		int reps = isPattern(letters,start,ending);
-
-		System.out.println();
-		print(letters,start,ending);
-		System.out.println();
-		System.out.println("counter: "+counter);
-		System.out.println("reps: " + reps);
-
-
-
-		if(remainder>0) {
-			for(int i = end-remainder; i<=end; i++) {
-				System.out.println("i " + i + " end " + end + " remainder " +remainder);
-				System.out.println();
-				print(letters);
-				remainingLetters = remainingLetters+letters[i];
-			}
-		}
-
-		//if it is a single letter with a pattern return the previous pattern
-		if(patternLength == 1 && reps == 1 && lastPatternStart != -1)
-		{
-			String lastPattern = "";
-			for(int i = lastPatternStart; i<lastPatternEnd+1; i++)
-				lastPattern = lastPattern+letters[i];
-			return lastPattern;
-		}//if it is a single letter without a pattern return that letter
-		else if(patternLength == 1 && reps == 1 && lastPatternStart == -1)
-		{
-			return Character.toString(letters[start]);
-		}
-
-		System.out.println("reps*patternLength "+reps*patternLength);
-		System.out.println("letterlength "+letters.length);
-
-
-
-		//if it finds a repetition
-		if( reps > 1)
-		{
-			//if it finds a pattern that spans the whole array, return the amount of repetitions across the string
-			if(reps>1 &&(reps*patternLength == letters.length || letters.length-patternLength <= (reps*patternLength)))
-			{
-				if(letters.length-patternLength == 1)
-					return reps + "(" + findKey(letters,start,ending,2,start,ending)+")"+letters[letters.length-1];
-				else if(letters.length-patternLength < (reps*patternLength))
-					return reps + "(" + findKey(letters,start,ending,2,start,ending)+")"+findKey(letters,end-remainder+1,end,2,-1,-1);
-				else
-					return reps + "(" + findKey(letters,start,ending,2,start,ending)+")";
-			}
-
-			System.out.println("reps "+reps);
-			if(patternLength == 1) {
-				if(((end-start)+1)%2 == 1)
-					return Integer.toString(reps)+ending+remainingLetters;
-				else
-					return Integer.toString(reps)+ending;
-			}
-			if(reps == 2 && patternLength <= 3) {
-				if(((end-start)+1)%2 == 1)
-					return findKey(letters,start,ending,2,start,ending) + remainingLetters;
-				else
-					return findKey(letters,start,ending,2,start,ending);
-			}
-			if(((end-start)+1)%2 == 1)
-				return Integer.toString(reps)+"("+findKey(letters,start,ending,2,start,ending)+")"+remainingLetters;
-			else
-				return Integer.toString(reps)+"("+findKey(letters,start,ending,2,start,ending)+")";
-		}
-		else
-		{
-			String total = "";
-
-			for(int i = 0; i<counter; i++)
-			{
-				total = total+findKey(letters,start+(i*patternLength)-i,end,counter+1,-1,-1);
-			}
-
-			if(((end-start)+1)%2 == 1)
-			{
-				return total+remainingLetters;
-			}
-			else
-				return total;
-		}
-
-	}*/
-
 	public static Character[] makeCharArray(char[] array, int start, int end) {
 		int length = (end - start) + 1;
 		Character[] newArray = new Character[length];
@@ -467,7 +321,7 @@ public class ShortestEncodingClass {
 	// possPattern is a consecutive pattern in the array, starting at that index
 	public static int getReps(ArrayList<String> letters, int start, int end) {
 
-		printArraySec(letters,start,end);
+		//printArraySec(letters,start,end);
 		int patternLength = (end - start)+1;
 		int reps = 1;
 
@@ -495,13 +349,13 @@ public class ShortestEncodingClass {
 			else
 				reps++;
 		}
-		System.out.println("reps: "+reps);
+		//System.out.println("reps: "+reps);
 		return reps;
 	}
 
 	public static int getRepsInt(ArrayList<Integer> arr, int start, int end, int ending) {
-		System.out.println("s "+start+ " e " +end);
-		System.out.println("arr length " + arr.size() + " ending "+ ending);
+		//System.out.println("s "+start+ " e " +end);
+		//System.out.println("arr length " + arr.size() + " ending "+ ending);
 		int patternLength = (end - start)+1;
 		int reps = 1;
 
@@ -544,33 +398,3 @@ public class ShortestEncodingClass {
 		System.out.println();
 	}
 }
-
-
-/*
- * // return notation of letters
-	public static String findKey(HashMap<Character[], String> notations, char[] letters, int start, int end) {
-
-		if((end-start)+1 >3)
-			return notations.get(turnIntoString(letters));
-
-
-		int ending = ((end - start) + 1) / 2;
-		System.out.println(start+" " + ending + " " + end);
-
-
-		int reps = isPattern(letters, start, ending);
-		System.out.println(reps);
-
-		if (reps > 1) {
-
-			Character[] pattern = makeCharArray(letters, start, ending);
-
-			notation = reps + "(" + findKey(notations, letters, start, ending) + ")" + letters[letters.length - 1];
-
-			notations.put(pattern, notation);
-
-			return notation;
-		} else {
-			return (findKey(notations, letters, start, (end / 2)) + findKey(notations, letters, (end / 2) + 1, end));
-		}
-	}*/
