@@ -5,9 +5,9 @@ public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
 		String expected3 = "3(abc)";
-		String expected =  "d399(3(b3c)a)3(b3c)";
+		String expected =  "a9da20d13a3b3ac3a3b3a11c";
 		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
-		String str =     "dbcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbccc ";
+		String str =     "adddddddddaddddddddddddddddddddaaaaaaaaaaaaabbbaaacaaabbbaaaccccccccccc";
 		String str2 = "aaabaabaab";
 		String expected2 = "a3(aab)";
 		char[] letters = turnIntoCharArray(str);
@@ -85,10 +85,10 @@ public class ShortestEncodingClass {
 			//System.out.println("Index " + i+" fullIndex "+fullIndexStart);
 
 			//if the pattern length is longer than the space left in the array, then add the part to the array
-			if(fullIndexStart+pattSize > full.size()-1 || i+pattSize-1 >patternArr.size()-1)
+			if(i+pattSize-1 >patternArr.size()-1)
 			{
-				newPatternArr.add(full.get(fullIndexStart));
-				newRepArr.add(1);
+				newPatternArr.add(patternArr.get(i));
+				newRepArr.add(repArr.get(i));
 			}
 			//if the pattern can be completed, check to see if it is repeated
 			else {
@@ -134,17 +134,23 @@ public class ShortestEncodingClass {
 						keys.put(newLetters,patternStr);
 					}
 
-					if(patternStr.length()>10)
-						try {
-							Thread.sleep(100000000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-
 					//add notation to newPatternArr and how many times that notation repeats to newRepArr
 					newPatternArr.add(patternStr);
 					newRepArr.add(reps);
+
+
+					if(repArr.get(i+pattSize-1) <repArr.get(((i+(pattSize*reps)-1))))
+					{
+						System.out.println("GOING OVERBOARD" + (i+pattSize-1)+(((i+pattSize)*reps)-1));
+						int newRepsOverboard = repArr.get(((i+(pattSize*reps)-1)))-repArr.get(i+pattSize-1);
+						newPatternArr.add(patternArr.get(((i+(pattSize*reps)-1))));
+						newRepArr.add(newRepsOverboard);
+						System.out.println(newRepsOverboard);
+
+					}
+					System.out.println("reps "+reps+" "+patternArr.get(i+pattSize-1) + patternArr.get((i*reps)+pattSize-1)+ (i+pattSize-1)+(((i+pattSize)*reps)-1));
+
+
 					i = i+((reps)*pattSize)-1;
 
 				}
@@ -152,6 +158,7 @@ public class ShortestEncodingClass {
 				{
 					int difference = getNewStartingPoint(patternArr,repArr,i,pattSize);
 					fullIndexStart = getFullIndexStart(patternArr, repArr, full, i)+difference;
+					System.out.println("NEW STARTING POINT");
 					reps = getReps(full,fullIndexStart,fullIndexEnd);
 
 					patternArr.add(i+1,patternArr.get(i));
@@ -186,6 +193,16 @@ public class ShortestEncodingClass {
 
 						newPatternArr.add(patternStr);
 						newRepArr.add(reps);
+
+						if(repArr.get(i+pattSize-1) <repArr.get(((i+(pattSize*reps)-1))))
+						{
+							System.out.println("GOING OVERBOARD" + (i+pattSize-1)+(((i+pattSize)*reps)-1));
+							int newRepsOverboard = repArr.get(((i+(pattSize*reps)-1)))-repArr.get(i+pattSize-1);
+							newPatternArr.add(patternArr.get(((i+(pattSize*reps)-1))));
+							newRepArr.add(newRepsOverboard);
+							System.out.println(newRepsOverboard);
+						}
+
 						i = i+((reps)*pattSize)-1;
 						//System.out.println("i "+i);
 					}
@@ -211,7 +228,7 @@ public class ShortestEncodingClass {
 
 	public static void overlap(ArrayList<String> letters,ArrayList<Integer> repsOfPatterns,ArrayList<String> full, ArrayList<String> pattern, ArrayList<Integer> repNums, int i)
 	{
-		System.out.println("OVERLAP");
+		System.out.println("OVERLAP----------------------------------------------------");
 		letters.add(i+1,letters.get(i));
 		repsOfPatterns.add(i+1,1);
 		repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
