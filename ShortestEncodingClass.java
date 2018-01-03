@@ -4,8 +4,12 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str =      "fdjfdjdjfdjdjfdj";
-		String expected = "f3(djfdj)";
+		String expected3 = "3(abc)";
+		String expected =  "d399(3(b3c)a)3(b3c)";
+		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
+		String str =     "dbcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbcccabcccbcccbccc ";
+		String str2 = "aaabaabaab";
+		String expected2 = "a3(aab)";
 		char[] letters = turnIntoCharArray(str);
 
 		//System.out.println(isPattern(letters,0,1));
@@ -19,7 +23,7 @@ public class ShortestEncodingClass {
 		ArrayList<String> pList = new ArrayList<String>();
 		ArrayList<Integer> numReps = new ArrayList<Integer>();
 		HashMap<ArrayList<String>, String> keys = new HashMap<ArrayList<String>,String>();
-		String notation = getNotation(makeStringArray(str),patternList,numOfAppearances,2,pList,numReps,keys);
+		String notation = getNotation(patternList,numOfAppearances,2,pList,numReps,keys);
 		System.err.println(notation);
 		System.out.println();
 		System.out.println(expected);
@@ -35,7 +39,7 @@ public class ShortestEncodingClass {
 
 
 	//gets the repetition of single characters
-	public static void getNotationFirstTime(char[] letters, ArrayList<String> pattern, ArrayList<Integer> numOfApp)
+	public static void getNotationFirstTime(char[] letters, ArrayList<String> patternArr, ArrayList<Integer> repArr)
 	{
 		for(int i = 0; i<letters.length; i++)
 		{
@@ -47,161 +51,181 @@ public class ShortestEncodingClass {
 				{
 					patternStr = patternStr+letters[j];
 				}
-				pattern.add(patternStr);
-				numOfApp.add(reps);
+				patternArr.add(patternStr);
+				repArr.add(reps);
 				i=i+(1*(reps-1));
 			}
 			else
 			{
-				pattern.add(Character.toString(letters[i]));
-				numOfApp.add(reps);
+				patternArr.add(Character.toString(letters[i]));
+				repArr.add(reps);
 			}
 		}
 	}
 
 	//notation of everything after single characters
-	public static String getNotation(ArrayList<String> realFull, ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int counter, ArrayList<String> pattern, ArrayList<Integer> repNums, HashMap<ArrayList<String>, String> keys)
+	public static String getNotation( ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
 	{
+		System.out.println(patternArr+"\n"+repArr);
 
-		//base case: if the pattern is larger than half of
-		if(counter >letters.size()/2) {
-			String patternStr = makeKey(letters,repsOfPatterns);
+		//base case: if the pattern is larger than half of patternArr length
+		if(pattSize >patternArr.size()/2) {
+			String patternStr = makeKey(patternArr,repArr);
 			return patternStr;
 		}
 
-		ArrayList<String> full = makeFullArray(letters,repsOfPatterns);
-		System.out.println(letters+"\n"+repsOfPatterns+"\n"+full+"\n"+counter+"\n");
+		//creates an array of the values in patternArr but expanded
+		ArrayList<String> full = makeFullArray(patternArr,repArr);
 
-		if(full.size()>16)
-			try {
-				Thread.sleep(1000000000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		//iterates through all the elements in the array to see if there are any patterns of length counter
-		for(int i = 0; i<letters.size(); i++)
+		//iterates through all the elements in the array to see if there are any patterns of length pattSize
+		for(int i = 0; i<patternArr.size(); i++)
 		{
-			System.out.println("i "+i+" size "+ letters.size());
-			int fullIndexStart = getFullIndex(letters, repsOfPatterns, full, i);
-			System.out.println("full index start"+fullIndexStart);
+			int fullIndexStart = getFullIndexStart(patternArr, repArr, full, i);
+			//int fullIndexEnd = getFullIndex(patternArr, repArr, full, i+pattSize-1);
+			//System.out.println("Index " + i+" fullIndex "+fullIndexStart);
 
-			if(fullIndexStart+counter > full.size()-1 || i+counter-1 >letters.size()-1)
+			//if the pattern length is longer than the space left in the array, then add the part to the array
+			if(fullIndexStart+pattSize > full.size()-1 || i+pattSize-1 >patternArr.size()-1)
 			{
-				pattern.add(full.get(fullIndexStart));
-				repNums.add(1);
+				newPatternArr.add(full.get(fullIndexStart));
+				newRepArr.add(1);
 			}
+			//if the pattern can be completed, check to see if it is repeated
 			else {
-
-				int fullIndexEnd = getFullIndex(letters, repsOfPatterns, full, i+counter-1);
+				int fullIndexEnd = getFullIndexEnd(patternArr, repArr, full, i+pattSize-1);
 
 				int reps = getReps(full,fullIndexStart,fullIndexEnd);
+				int letterReps = getReps(patternArr,i,i+pattSize-1);
 
+				//check if pattern is repeated
 				if(reps>1)
 				{
+
+					//checks for overlaps
 					int numOfRepsFull = getReps(full,fullIndexStart,fullIndexStart);
-					int numOfReps = repsOfPatterns.get(i);
+					int numOfReps = repArr.get(i);
 
 					if(numOfRepsFull != numOfReps)
 					{
-						System.out.println("OVERLAP");
-						letters.add(i+1,letters.get(i));
-						repsOfPatterns.add(i+1,1);
-						repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
-						if(repsOfPatterns.get(i) == 0)
-						{
-							letters.remove(i);
-							repsOfPatterns.remove(i);
-						}
-						full = makeFullArray(letters,repsOfPatterns);
-
-						pattern.add(letters.get(i));
-						repNums.add(repsOfPatterns.get(i));
-						i++;
+						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
 					}
-
-					if(i == 0 && fullIndexStart != 0)
+					else if(i == 0 && fullIndexStart != 0)
 					{
-						System.out.println("OVERLAP");
-						letters.add(i+1,letters.get(i));
-						repsOfPatterns.add(i+1,1);
-						repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
-						if(repsOfPatterns.get(i) == 0)
-						{
-							letters.remove(i);
-							repsOfPatterns.remove(i);
-						}
-						full = makeFullArray(letters,repsOfPatterns);
-
-						pattern.add(letters.get(i));
-						repNums.add(repsOfPatterns.get(i));
-						i++;
+						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
 					}
 
-					System.out.println("PATTERN");
-
+					//builds notation for pattern
 					ArrayList<String> newLetters = new ArrayList<String>();
 					ArrayList<Integer> newReps = new ArrayList<Integer>();
 
 					String patternStr;
 
-					for(int j = i; j<i+counter; j++)
+					for(int j = i; j<i+pattSize; j++)
 					{
-						newLetters.add(letters.get(j));
-						newReps.add(repsOfPatterns.get(j));
+						newLetters.add(patternArr.get(j));
+						newReps.add(repArr.get(j));
 					}
-					//System.out.println(newLetters+ "\n"+reps);
-
+					//checks to see if a key is already in the hm
 					if(keys.containsKey(newLetters))
-					{
-						System.out.println("CONTAINS KEY");
 						patternStr = keys.get(newLetters);
-					}
+					//if not, make the key and add it to the hm
 					else {
 						patternStr = makeKey(newLetters,newReps);
 						keys.put(newLetters,patternStr);
 					}
 
-					pattern.add(patternStr);
-					repNums.add(reps);
-					i = i+((reps)*counter)-1;
+					if(patternStr.length()>10)
+						try {
+							Thread.sleep(100000000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					//add notation to newPatternArr and how many times that notation repeats to newRepArr
+					newPatternArr.add(patternStr);
+					newRepArr.add(reps);
+					i = i+((reps)*pattSize)-1;
+
+				}
+				else if(isPatternWithDifferentStartingPoint(patternArr, repArr,i,pattSize))
+				{
+					int difference = getNewStartingPoint(patternArr,repArr,i,pattSize);
+					fullIndexStart = getFullIndexStart(patternArr, repArr, full, i)+difference;
+					reps = getReps(full,fullIndexStart,fullIndexEnd);
+
+					patternArr.add(i+1,patternArr.get(i));
+					repArr.add(i+1,repArr.get(i)-difference);
+					repArr.set(i, difference);
+					i++;
+
+					if(reps>1)
+					{
+						newPatternArr.add(patternArr.get(i-1));
+						newRepArr.add(repArr.get(i-1));
+
+						ArrayList<String> newLetters = new ArrayList<String>();
+						ArrayList<Integer> newReps = new ArrayList<Integer>();
+
+						String patternStr;
+
+						for(int j = i; j<i+pattSize; j++)
+						{
+							newLetters.add(patternArr.get(j));
+							newReps.add(repArr.get(j));
+						}
+
+						if(keys.containsKey(newLetters))
+						{
+							patternStr = keys.get(newLetters);
+						}
+						else {
+							patternStr = makeKey(newLetters,newReps);
+							keys.put(newLetters,patternStr);
+						}
+
+						newPatternArr.add(patternStr);
+						newRepArr.add(reps);
+						i = i+((reps)*pattSize)-1;
+						//System.out.println("i "+i);
+					}
 				}
 				else
 				{
-					pattern.add(letters.get(i));
-					repNums.add(repsOfPatterns.get(i));
+					newPatternArr.add(patternArr.get(i));
+					newRepArr.add(repArr.get(i));
 				}
 			}
 		}
+
 		ArrayList<String> p = new ArrayList<String>();
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 
-		//System.out.println(keys);
-
-		if(isEqual(letters,pattern))
-		{
-			return getNotation(full,letters,repsOfPatterns,counter+1,p,nums,keys);
-		}
+		if(isEqual(patternArr,newPatternArr))
+			return getNotation(patternArr,repArr,pattSize+1,p,nums,keys);
 		else
-		{
-		/*	ArrayList<Integer> fullReps = new ArrayList<Integer>();
-			for(int i = 0; i<full.size(); i++)
-			{
-				fullReps.add(1);
-			}
-			String notFull = getNotation(full,pattern, repNums,1,p,nums,keys);
-			String fullRedo = getNotation(full,full,fullReps,counter+1,p, nums,keys);
-			if(notFull.length()<fullRedo.length())
-				return notFull;
-			else
-				return fullRedo;*/
-			return getNotation(full,pattern, repNums,1,p,nums,keys);
-		}
+			return getNotation(newPatternArr, newRepArr,1,p,nums,keys);
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------
 
+	public static void overlap(ArrayList<String> letters,ArrayList<Integer> repsOfPatterns,ArrayList<String> full, ArrayList<String> pattern, ArrayList<Integer> repNums, int i)
+	{
+		System.out.println("OVERLAP");
+		letters.add(i+1,letters.get(i));
+		repsOfPatterns.add(i+1,1);
+		repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
+		if(repsOfPatterns.get(i) == 0)
+		{
+			letters.remove(i);
+			repsOfPatterns.remove(i);
+		}
+		full = makeFullArray(letters,repsOfPatterns);
+
+		pattern.add(letters.get(i));
+		repNums.add(repsOfPatterns.get(i));
+		i++;
+	}
 
 	public static boolean isEqual(ArrayList<String> arr1, ArrayList<String> arr2)
 	{
@@ -216,20 +240,33 @@ public class ShortestEncodingClass {
 		return true;
 	}
 
-	public static int getFullIndex(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
+	public static int getFullIndexStart(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
 	{
-		//System.out.println("GET FULL INDEX");
-		//System.out.println(letters+"\n"+repCount);
-		//System.out.println(letterIndex);
-		//System.out.println(letters.size());
 		int index = 0;
-		for(int i = 0; i<= letterIndex; i++)
+		if(letterIndex == 0)
+			return 0;
+
+		for(int i = 0; i< letterIndex; i++)
 		{
-			index = index+(repCount.get(i));//*letters.get(i).length());
+			index = index+(repCount.get(i));
 
 		}
+		System.out.println("Start: " + " i " +letterIndex+" fullIndex "+(index));
+		return index;
+	}
+
+	public static int getFullIndexEnd(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
+	{
+		int index = 0;
+		for(int i = 0; i<=letterIndex; i++)
+		{
+			index = index+(repCount.get(i));
+
+		}
+		System.out.println("End: " + " i " +letterIndex+" fullIndex "+(index-1));
 		return index-1;
 	}
+
 
 	public static ArrayList<String> makeFullArray(ArrayList<String> letters, ArrayList<Integer> repCount)
 	{
@@ -239,14 +276,7 @@ public class ShortestEncodingClass {
 		{
 			for(int j = 0; j < repCount.get(i); j++)
 			{
-				/*if(letters.get(i).length()>1)
-				{
-					for(int k = 0; k<letters.get(i).length(); k++)
-					{
-						full.add(Character.toString(letters.get(i).charAt(k)));
-					}
-				}else*/
-					full.add(letters.get(i));
+				full.add(letters.get(i));
 			}
 		}
 		return full;
@@ -257,13 +287,41 @@ public class ShortestEncodingClass {
 	{
 		int reps = getReps(letters,start,end);
 		int reps2 = getRepsInt(repCount,start,end,(reps*counter));
-		//System.out.println("reps2 "+reps2 + " reps "+reps);
 
 		if(reps>1 && reps == reps2)
 			return true;
 
 		return false;
 
+	}
+
+	public static boolean isPatternWithDifferentStartingPoint(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
+	{
+		int reps = getReps(letters,i,i+counter-1);
+		//System.out.println("reps "+reps);
+		if(reps >1  && repsOfPatterns.get(i)>repsOfPatterns.get(i+counter))
+		{
+			int repRequirement = repsOfPatterns.get(i+counter);
+			for(int o =1; o<reps; o++)
+			{
+				if(repsOfPatterns.get(o*counter+i) != repRequirement)
+				{
+					return false;
+				}
+			}
+
+			return true;
+		}
+		return false;
+	}
+
+	public static int getNewStartingPoint(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
+	{
+		if(repsOfPatterns.get(i)>repsOfPatterns.get(i+counter))
+		{
+			return repsOfPatterns.get(i)-repsOfPatterns.get(i+counter);
+		}
+		return -1;
 	}
 
 
