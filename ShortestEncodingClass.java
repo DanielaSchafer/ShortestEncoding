@@ -5,9 +5,9 @@ public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
 		String expected3 = "3(abc)";
-		String expected =  "a9da20d13a3b3ac3a3b3a11c";
+		String expected =  "25(jdfjd8(jf)jsf2(jfjd)jfdjfjdjg2(djfjdjf)5(djfdjfj)dfj3(djf)jdjf2(djfjdfjdjfdjfjdj)fdjfjdfjdjdjff2(j3(djf))jdfj4(djf)jdjf3(djfdjfj)dfjd)";
 		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
-		String str =     "adddddddddaddddddddddddddddddddaaaaaaaaaaaaabbbaaacaaabbbaaaccccccccccc";
+		String str =     "jdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjdjdfjdjfjfjfjfjfjfjfjfjsfjfjdjfjdjfdjfjdjgdjfjdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdjfdjfjdjfdjfjdfjdjfdjfdjfjdjfdjfjdfjdjfdjfjdjdjfjdfjdjfdjfjdjfdjfjdfjdjdjffjdjfdjfdjfjdjfdjfdjfjdfjdjfdjfdjfdjfjdjfdjfdjfjdjfdjfjdjfdjfjdfjd ";
 		String str2 = "aaabaabaab";
 		String expected2 = "a3(aab)";
 		char[] letters = turnIntoCharArray(str);
@@ -23,7 +23,8 @@ public class ShortestEncodingClass {
 		ArrayList<String> pList = new ArrayList<String>();
 		ArrayList<Integer> numReps = new ArrayList<Integer>();
 		HashMap<ArrayList<String>, String> keys = new HashMap<ArrayList<String>,String>();
-		String notation = getNotation(patternList,numOfAppearances,2,pList,numReps,keys);
+		ArrayList<String> code = new ArrayList<String>();
+		String notation = getNotation(code,patternList,numOfAppearances,2,pList,numReps,keys);
 		System.err.println(notation);
 		System.out.println();
 		System.out.println(expected);
@@ -64,14 +65,26 @@ public class ShortestEncodingClass {
 	}
 
 	//notation of everything after single characters
-	public static String getNotation( ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
+	public static String getNotation(ArrayList<String> codes, ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
 	{
-		System.out.println(patternArr+"\n"+repArr);
+		//System.out.println(patternArr+"\n"+repArr);
 
 		//base case: if the pattern is larger than half of patternArr length
 		if(pattSize >patternArr.size()/2) {
 			String patternStr = makeKey(patternArr,repArr);
-			return patternStr;
+			codes.add(patternStr);
+
+			System.out.println(patternStr);
+
+			int minIndex = 0;
+
+			for(int i = 0; i<codes.size(); i++)
+			{
+				if(codes.get(i).length()<codes.get(minIndex).length())
+					minIndex = i;
+			}
+			System.out.println("codes "+codes);
+			return codes.get(minIndex);
 		}
 
 		//creates an array of the values in patternArr but expanded
@@ -95,7 +108,6 @@ public class ShortestEncodingClass {
 				int fullIndexEnd = getFullIndexEnd(patternArr, repArr, full, i+pattSize-1);
 
 				int reps = getReps(full,fullIndexStart,fullIndexEnd);
-				int letterReps = getReps(patternArr,i,i+pattSize-1);
 
 				//check if pattern is repeated
 				if(reps>1)
@@ -107,10 +119,12 @@ public class ShortestEncodingClass {
 
 					if(numOfRepsFull != numOfReps)
 					{
+						System.out.println("overlap");
 						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
 					}
 					else if(i == 0 && fullIndexStart != 0)
 					{
+						System.out.println("overlap");
 						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
 					}
 
@@ -138,27 +152,33 @@ public class ShortestEncodingClass {
 					newPatternArr.add(patternStr);
 					newRepArr.add(reps);
 
-
+					/*
+					 * checks to see if the last element runs over the amount alloted in the pattern
+					 * ex. if pattern is "ab" and string is "abababbb" it would be notated as "3(ab)2b"
+					 * b would be the element that ran over the alloted amount in the pattern
+					 */
 					if(repArr.get(i+pattSize-1) <repArr.get(((i+(pattSize*reps)-1))))
 					{
-						System.out.println("GOING OVERBOARD" + (i+pattSize-1)+(((i+pattSize)*reps)-1));
 						int newRepsOverboard = repArr.get(((i+(pattSize*reps)-1)))-repArr.get(i+pattSize-1);
 						newPatternArr.add(patternArr.get(((i+(pattSize*reps)-1))));
 						newRepArr.add(newRepsOverboard);
-						System.out.println(newRepsOverboard);
-
 					}
-					System.out.println("reps "+reps+" "+patternArr.get(i+pattSize-1) + patternArr.get((i*reps)+pattSize-1)+ (i+pattSize-1)+(((i+pattSize)*reps)-1));
-
 
 					i = i+((reps)*pattSize)-1;
 
 				}
+				/*
+				 * checks to see if pattern could still exist with a starting point that is not the first when corresponding to the full array
+				 *
+				 * ex. with "aababab" it would be condensed to "ababab", but the pattern of "ab" would not be recognized because the "a" is repeated twice
+				 * so it checks with the full array to see that the pattern does exist by taking off the first "a"
+				 * that "a" is then put into the array before the pattern is notated
+				 * the resulting notation would be "a3(ab)"
+				 */
 				else if(isPatternWithDifferentStartingPoint(patternArr, repArr,i,pattSize))
 				{
 					int difference = getNewStartingPoint(patternArr,repArr,i,pattSize);
 					fullIndexStart = getFullIndexStart(patternArr, repArr, full, i)+difference;
-					System.out.println("NEW STARTING POINT");
 					reps = getReps(full,fullIndexStart,fullIndexEnd);
 
 					patternArr.add(i+1,patternArr.get(i));
@@ -196,15 +216,12 @@ public class ShortestEncodingClass {
 
 						if(repArr.get(i+pattSize-1) <repArr.get(((i+(pattSize*reps)-1))))
 						{
-							System.out.println("GOING OVERBOARD" + (i+pattSize-1)+(((i+pattSize)*reps)-1));
 							int newRepsOverboard = repArr.get(((i+(pattSize*reps)-1)))-repArr.get(i+pattSize-1);
 							newPatternArr.add(patternArr.get(((i+(pattSize*reps)-1))));
 							newRepArr.add(newRepsOverboard);
-							System.out.println(newRepsOverboard);
 						}
 
 						i = i+((reps)*pattSize)-1;
-						//System.out.println("i "+i);
 					}
 				}
 				else
@@ -215,20 +232,24 @@ public class ShortestEncodingClass {
 			}
 		}
 
+		//creation of new empty ArrayLists
 		ArrayList<String> p = new ArrayList<String>();
 		ArrayList<Integer> nums = new ArrayList<Integer>();
 
 		if(isEqual(patternArr,newPatternArr))
-			return getNotation(patternArr,repArr,pattSize+1,p,nums,keys);
+			return getNotation(codes,patternArr,repArr,pattSize+1,p,nums,keys);
 		else
-			return getNotation(newPatternArr, newRepArr,1,p,nums,keys);
+		{
+			String patternStr = makeKey(patternArr,repArr);
+			codes.add(patternStr);
+			return getNotation(codes,newPatternArr, newRepArr,1,p,nums,keys);
+		}
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------
 
 	public static void overlap(ArrayList<String> letters,ArrayList<Integer> repsOfPatterns,ArrayList<String> full, ArrayList<String> pattern, ArrayList<Integer> repNums, int i)
 	{
-		System.out.println("OVERLAP----------------------------------------------------");
 		letters.add(i+1,letters.get(i));
 		repsOfPatterns.add(i+1,1);
 		repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
@@ -268,7 +289,6 @@ public class ShortestEncodingClass {
 			index = index+(repCount.get(i));
 
 		}
-		System.out.println("Start: " + " i " +letterIndex+" fullIndex "+(index));
 		return index;
 	}
 
@@ -280,7 +300,6 @@ public class ShortestEncodingClass {
 			index = index+(repCount.get(i));
 
 		}
-		System.out.println("End: " + " i " +letterIndex+" fullIndex "+(index-1));
 		return index-1;
 	}
 
