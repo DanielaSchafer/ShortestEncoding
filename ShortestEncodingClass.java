@@ -116,21 +116,6 @@ public class ShortestEncodingClass {
 				//check if pattern is repeated
 				if(reps>1)
 				{
-					//checks for overlaps
-					int numOfRepsFull = getReps(full,fullIndexStart,fullIndexStart);
-					int numOfReps = repArr.get(i);
-
-					if(numOfRepsFull != numOfReps)
-					{
-						System.out.println("overlap");
-						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
-					}
-					else if(i == 0 && fullIndexStart != 0)
-					{
-						System.out.println("overlap");
-						overlap(patternArr,repArr,full,newPatternArr, newRepArr, i);
-					}
-
 					//builds notation for pattern
 					ArrayList<String> newLetters = new ArrayList<String>();
 					ArrayList<Integer> newReps = new ArrayList<Integer>();
@@ -258,24 +243,6 @@ public class ShortestEncodingClass {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------
-
-	public static void overlap(ArrayList<String> letters,ArrayList<Integer> repsOfPatterns,ArrayList<String> full, ArrayList<String> pattern, ArrayList<Integer> repNums, int i)
-	{
-		letters.add(i+1,letters.get(i));
-		repsOfPatterns.add(i+1,1);
-		repsOfPatterns.set(i, repsOfPatterns.get(i)-1);
-		if(repsOfPatterns.get(i) == 0)
-		{
-			letters.remove(i);
-			repsOfPatterns.remove(i);
-		}
-		full = makeFullArray(letters,repsOfPatterns);
-
-		pattern.add(letters.get(i));
-		repNums.add(repsOfPatterns.get(i));
-		i++;
-	}
-
 	public static boolean isEqual(ArrayList<String> arr1, ArrayList<String> arr2)
 	{
 		if(arr2.size() != arr1.size())
