@@ -12,7 +12,6 @@ public class ShortestEncodingClass {
 		String expected = "a3(aab)";
 
 		System.err.println(runner(str));
-
 	}
 
 	/**
@@ -109,6 +108,7 @@ public class ShortestEncodingClass {
 	 */
 	public static String getNotation(ArrayList<String> codes, ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
 	{
+		System.out.println(patternArr+"\n"+repArr);
 		//base case: if the pattern is larger than half of patternArr length (it reaches a pattern size that is no longer possible)
 		if(pattSize >patternArr.size()/2) {
 			String patternStr = makeKey(patternArr,repArr);
@@ -189,6 +189,7 @@ public class ShortestEncodingClass {
 					 * ex. if pattern is "ab" and string is "abababbb" it would be notated as "3(ab)2b"
 					 * b would be the element that ran over the alloted amount in the pattern
 					 */
+
 					if(repArr.get(i+pattSize-1) <repArr.get(((i+(pattSize*reps)-1))))
 					{
 						int newRepsOverboard = repArr.get(((i+(pattSize*reps)-1)))-repArr.get(i+pattSize-1);
@@ -200,6 +201,7 @@ public class ShortestEncodingClass {
 					i = i+((reps)*pattSize)-1;
 
 				}
+
 				/*
 				 * checks to see if pattern could still exist with a starting point that is not the first when corresponding to the full array
 				 *
@@ -211,7 +213,7 @@ public class ShortestEncodingClass {
 				else if(isPatternWithDifferentStartingPoint(patternArr, repArr,i,pattSize))
 				{
 					//finds the difference between the old starting point and the new starting point in the full array
-					int difference = getDifference(patternArr,repArr,i,pattSize);
+					int difference = getDifference(repArr,i,pattSize);
 
 					//based off of the difference, it finds the new starting point of the pattern
 					fullIndexStart = getFullIndexStart(repArr,i)+difference;
@@ -260,7 +262,6 @@ public class ShortestEncodingClass {
 							newPatternArr.add(patternArr.get(((i+(pattSize*reps)-1))));
 							newRepArr.add(newRepsOverboard);
 						}
-
 						i = i+((reps)*pattSize)-1;
 					}
 				}
@@ -376,6 +377,15 @@ public class ShortestEncodingClass {
 		return full;
 	}
 
+	/**
+	 *
+	 * @param letters
+	 * @param repCount
+	 * @param start
+	 * @param end
+	 * @param counter
+	 * @return
+	 */
 	public static boolean isPattern(ArrayList<String> letters, ArrayList<Integer> repCount, int start, int end, int counter)
 	{
 		int reps = getReps(letters,start,end);
@@ -387,59 +397,85 @@ public class ShortestEncodingClass {
 		return false;
 
 	}
-
-	public static boolean isPatternWithDifferentStartingPoint(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
+	/**
+	 *
+	 * checks to see if pattern could still exist with a starting point that is not the first when corresponding to the full array
+	 *
+	 * ex. with "aababab" it would be condensed to "ababab", but the pattern of "ab" would not be recognized because the "a" is repeated twice
+	 * so it checks with the full array to see that the pattern does exist by taking off the first "a"
+	 * that "a" is then put into the array before the pattern is notated
+	 * the resulting notation would be "a3(ab)"
+	 *
+	 * @param patternArr: current notation of original string array
+	 * @param repsArr: number of repetitions for each element in patternArr
+	 * @param i: pattern starting point in patternArr
+	 * @param pattLength: length of pattern
+	 * @return returns true if pattern could still exist with a starting point that is not the first when corresponding to the full array
+	 */
+	public static boolean isPatternWithDifferentStartingPoint(ArrayList<String> patternArr, ArrayList<Integer> repsArr, int i, int pattLength)
 	{
-		int reps = getReps(letters,i,i+counter-1);
+		int reps = getReps(patternArr,i,i+pattLength-1);
 
-		if(reps >1  && repsOfPatterns.get(i)>repsOfPatterns.get(i+counter))
+		if(reps >1  && repsArr.get(i)>repsArr.get(i+pattLength))
 		{
-			int repRequirement = repsOfPatterns.get(i+counter);
+			int repRequirement = repsArr.get(i+pattLength);
 			for(int o =1; o<reps; o++)
 			{
-				if(repsOfPatterns.get(o*counter+i) != repRequirement)
+				if(repsArr.get(o*pattLength+i) != repRequirement)
 				{
 					return false;
 				}
 			}
-
 			return true;
 		}
 		return false;
 	}
 
-	public static int getDifference(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
+	/**
+	 *
+	 * @param repsArr
+	 * @param i: index in patternArr
+	 * @param pattLength
+	 * @return returns the difference between the old starting point and the new starting point in the full array
+	 */
+	public static int getDifference(ArrayList<Integer> repsArr, int i, int pattLength)
 	{
-		if(repsOfPatterns.get(i)>repsOfPatterns.get(i+counter))
+		if(repsArr.get(i)>repsArr.get(i+pattLength))
 		{
-			return repsOfPatterns.get(i)-repsOfPatterns.get(i+counter);
+			return repsArr.get(i)-repsArr.get(i+pattLength);
 		}
 		return -1;
 	}
 
-
-	public static String makeKey(ArrayList<String> letters, ArrayList<Integer> reps)
+	/**
+	 *
+	 * @param patternArr: ArrayList of notations that make up the original string
+	 * @param repsArr: the amount of times each element in patternArr repeats
+	 * @return returns the notation of the original string based off of patternArr and repsArr
+	 */
+	public static String makeKey(ArrayList<String> patternArr, ArrayList<Integer> repsArr)
 	{
+		//The string that will hold the notation of patternArr
 		String patternStr = "";
 
-		for(int i = 0; i<letters.size(); i++)
+		for(int i = 0; i<patternArr.size(); i++)
 		{
 
 			//if pattern is of length 2 and repeats 2 times
-			if(letters.get(i).length() == 2 && reps.get(i) == 2)
-				patternStr = patternStr +letters.get(i)+letters.get(i);
+			if(patternArr.get(i).length() == 2 && repsArr.get(i) == 2)
+				patternStr = patternStr +patternArr.get(i)+patternArr.get(i);
 			//if pattern length is longer than one and repeats
-			else if(letters.get(i).length()>1 && reps.get(i)>1)
-				patternStr = patternStr +Integer.toString(reps.get(i))+"("+letters.get(i)+")";
+			else if(patternArr.get(i).length()>1 && repsArr.get(i)>1)
+				patternStr = patternStr +Integer.toString(repsArr.get(i))+"("+patternArr.get(i)+")";
 			//if pattern length is longer than one and does NOT repeat
-			else if(letters.get(i).length()>1 && reps.get(i)==1)
-				patternStr = patternStr+letters.get(i);
+			else if(patternArr.get(i).length()>1 && repsArr.get(i)==1)
+				patternStr = patternStr+patternArr.get(i);
 			//if pattern of length one and repeats
-			else if(letters.get(i).length() == 1 && reps.get(i)>1)
-				patternStr = patternStr+Integer.toString(reps.get(i))+letters.get(i);
+			else if(patternArr.get(i).length() == 1 && repsArr.get(i)>1)
+				patternStr = patternStr+Integer.toString(repsArr.get(i))+patternArr.get(i);
 			//if pattern is longer than one and does NOT repeat
 			else
-				patternStr = patternStr+letters.get(i);
+				patternStr = patternStr+patternArr.get(i);
 		}
 		return patternStr;
 	}
