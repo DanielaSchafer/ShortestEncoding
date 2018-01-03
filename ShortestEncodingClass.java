@@ -5,16 +5,22 @@ public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
 		String expected3 = "3(abc)";
-		String expected =  "a9da20d";
+		String expected2 =  "a9da20d";
 		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
-		String str =     "adddddddddadddddddddddddddddddd";
-		String str2 = "aaabaabaab";
-		String expected2 = "a3(aab)";
+		String str2 =     "adddddddddadddddddddddddddddddd";
+		String str = "aaabaabaab";
+		String expected = "a3(aab)";
 
 		System.err.println(runner(str));
 
 	}
 
+	/**
+	 * Runs the methods required to return the shortest encoded version of a String
+	 *
+	 * @param String str: the String to be encoded
+	 * @return String of the shortest encoded version of str
+	 */
 	public static String runner(String str)
 	{
 		char[] letters = turnIntoCharArray(str);
@@ -31,7 +37,14 @@ public class ShortestEncodingClass {
 		return notation;
 	}
 
-	public static void runner(String str, String expected)
+	/**
+	 * Runs the methods required to return the shortest encoded version of a String and compares it to an expected value
+	 *
+	 * @param String str: the String to be encoded
+	 * @param String expected: the expected shortest notation of str
+	 * @return boolean if the shortest notation is the same as the expected value
+	 */
+	public static boolean runner(String str, String expected)
 	{
 		char[] letters = turnIntoCharArray(str);
 
@@ -43,52 +56,65 @@ public class ShortestEncodingClass {
 		ArrayList<Integer> numReps = new ArrayList<Integer>();
 		HashMap<ArrayList<String>, String> keys = new HashMap<ArrayList<String>,String>();
 		ArrayList<String> code = new ArrayList<String>();
+
 		String notation = getNotation(code,patternList,numOfAppearances,2,pList,numReps,keys);
+
 		System.err.println(notation);
 		System.out.println();
 		System.out.println(expected);
 		System.out.println();
 
 		if(notation.equals(expected))
-			System.out.println("true");
+			return true;
 		else
-			System.out.println("false");
+			return false;
 	}
 
 
-	//gets the repetition of single characters
+	/**
+	 * Searches through char[] letters to find consecutive repetitions of single characters
+	 *
+	 * @param char[] letters: the character array of the original String
+	 * @param ArrayList<String> patternArr: an empty ArrayList to put single letter Patterns into
+	 * @param ArrayList<Integer> repArr: an empty ArrayList to put the repetitions of each letter into
+	 */
 	public static void getNotationFirstTime(char[] letters, ArrayList<String> patternArr, ArrayList<Integer> repArr)
 	{
 		for(int i = 0; i<letters.length; i++)
 		{
+			//find the number of times a character is repeated consecutively
 			int reps = getReps(letters,i,i);
+
+			//adds the character to patternArr and how many times it repeats to repArr
+			patternArr.add(Character.toString(letters[i]));
+			repArr.add(reps);
+
+			//if the letter is repeated: increment the index so that it moves onto the next different character (or the end of the array)
 			if(reps >1)
-			{
-				String patternStr = "";
-				for(int j = i; j<i+1; j++)
-				{
-					patternStr = patternStr+letters[j];
-				}
-				patternArr.add(patternStr);
-				repArr.add(reps);
 				i=i+(1*(reps-1));
-			}
-			else
-			{
-				patternArr.add(Character.toString(letters[i]));
-				repArr.add(reps);
-			}
 		}
 	}
 
-	//notation of everything after single characters
+	/**
+	 * Returns shortest notation of the original string based off of ArrayList<String> from getNotationFirstTime()
+	 *
+	 * @param ArrayList<String> codes: holds all possible notations (empty on first call but gets filled with recursive calls)
+	 * @param ArrayList<String> patternArr: holds some notation of the original string
+	 * @param ArrayList<Integer> repArr: holds the number of times each element in patternArr is repeated
+	 * @param int pattSize: holds the length of the pattern the program is searching for
+	 * @param ArrayList<String> newPatternArr: empty ArrayList that will hold new patterns
+	 * @param ArrayList<Integer> newRepArr: empty ArrayList that will hold new repetitions of elements in newPatternArr
+	 * @param HashMap<ArrayList<String>, String> keys: keeps record of different patterns so if they are found again, they don't have to be re encoded
+	 * @return returns shortest notation of the original string
+	 */
 	public static String getNotation(ArrayList<String> codes, ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
 	{
-		//base case: if the pattern is larger than half of patternArr length
+		//base case: if the pattern is larger than half of patternArr length (it reaches a pattern size that is no longer possible)
 		if(pattSize >patternArr.size()/2) {
 			String patternStr = makeKey(patternArr,repArr);
 			codes.add(patternStr);
 
+			//index of shortest code
 			int minIndex = 0;
 
 			//takes all possible String notations from list codes and finds the shortest one
@@ -110,7 +136,7 @@ public class ShortestEncodingClass {
 		for(int i = 0; i<patternArr.size(); i++)
 		{
 			//gets the corresponding starting point from the letter array to the full array of the pattern
-			int fullIndexStart = getFullIndexStart(patternArr, repArr, full, i);
+			int fullIndexStart = getFullIndexStart(repArr,i);
 
 			//if the pattern length is longer than the space left in the array, then add the part to the array
 			if(i+pattSize-1 >patternArr.size()-1)
@@ -123,7 +149,7 @@ public class ShortestEncodingClass {
 			else {
 
 				//gets the corresponding ending point from the letter array to the full array of the pattern
-				int fullIndexEnd = getFullIndexEnd(patternArr, repArr, full, i+pattSize-1);
+				int fullIndexEnd = getFullIndexEnd(repArr,i+pattSize-1);
 
 				//gets the repetitions from the full array
 				int reps = getReps(full,fullIndexStart,fullIndexEnd);
@@ -135,8 +161,10 @@ public class ShortestEncodingClass {
 					ArrayList<String> newLetters = new ArrayList<String>();
 					ArrayList<Integer> newReps = new ArrayList<Integer>();
 
+					//String that holds notation
 					String patternStr;
 
+					//creates sub arrays of the pattern so that they can be inputed into makeKey()
 					for(int j = i; j<i+pattSize; j++)
 					{
 						newLetters.add(patternArr.get(j));
@@ -157,6 +185,7 @@ public class ShortestEncodingClass {
 
 					/*
 					 * checks to see if the last element runs over the amount alloted in the pattern
+					 *
 					 * ex. if pattern is "ab" and string is "abababbb" it would be notated as "3(ab)2b"
 					 * b would be the element that ran over the alloted amount in the pattern
 					 */
@@ -167,6 +196,7 @@ public class ShortestEncodingClass {
 						newRepArr.add(newRepsOverboard);
 					}
 
+					//index is incremented so that the index is past the pattern already found (or the end of the array)
 					i = i+((reps)*pattSize)-1;
 
 				}
@@ -180,10 +210,16 @@ public class ShortestEncodingClass {
 				 */
 				else if(isPatternWithDifferentStartingPoint(patternArr, repArr,i,pattSize))
 				{
-					int difference = getNewStartingPoint(patternArr,repArr,i,pattSize);
-					fullIndexStart = getFullIndexStart(patternArr, repArr, full, i)+difference;
+					//finds the difference between the old starting point and the new starting point in the full array
+					int difference = getDifference(patternArr,repArr,i,pattSize);
+
+					//based off of the difference, it finds the new starting point of the pattern
+					fullIndexStart = getFullIndexStart(repArr,i)+difference;
+
+					//finds how many times the pattern is repeated
 					reps = getReps(full,fullIndexStart,fullIndexEnd);
 
+					//splits up the element where the overlap occurs
 					patternArr.add(i+1,patternArr.get(i));
 					repArr.add(i+1,repArr.get(i)-difference);
 					repArr.set(i, difference);
@@ -258,6 +294,14 @@ public class ShortestEncodingClass {
 	}
 
 	//-------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * Determines if two ArrayLists carry equal values
+	 *
+	 * @param arr1
+	 * @param arr2
+	 * @return returns whether the ArrayLists are equal
+	 */
 	public static boolean isEqual(ArrayList<String> arr1, ArrayList<String> arr2)
 	{
 		if(arr2.size() != arr1.size())
@@ -271,7 +315,14 @@ public class ShortestEncodingClass {
 		return true;
 	}
 
-	public static int getFullIndexStart(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
+	/**
+	 * Finds the corresponding starting index in the full array from the patternArr
+	 *
+	 * @param repArr
+	 * @param letterIndex
+	 * @return
+	 */
+	public static int getFullIndexStart(ArrayList<Integer> repArr, int letterIndex)
 	{
 		int index = 0;
 		if(letterIndex == 0)
@@ -279,37 +330,50 @@ public class ShortestEncodingClass {
 
 		for(int i = 0; i< letterIndex; i++)
 		{
-			index = index+(repCount.get(i));
+			index = index+(repArr.get(i));
 
 		}
 		return index;
 	}
 
-	public static int getFullIndexEnd(ArrayList<String> letters, ArrayList<Integer> repCount, ArrayList<String> full, int letterIndex)
+	/**
+	 * Finds the corresponding ending index in the full array from the patternArr
+	 *
+	 * @param repArr
+	 * @param letterIndex
+	 * @return
+	 */
+	public static int getFullIndexEnd(ArrayList<Integer> repArr, int letterIndex)
 	{
 		int index = 0;
 		for(int i = 0; i<=letterIndex; i++)
 		{
-			index = index+(repCount.get(i));
+			index = index+(repArr.get(i));
 
 		}
 		return index-1;
 	}
 
 
-	public static ArrayList<String> makeFullArray(ArrayList<String> letters, ArrayList<Integer> repCount)
+	/**
+	 * expands the patternArr so that all values are repeated once
+	 *
+	 * @param patternArr
+	 * @param repArr
+	 * @return
+	 */
+	public static ArrayList<String> makeFullArray(ArrayList<String> patternArr, ArrayList<Integer> repArr)
 	{
 		ArrayList<String> full = new ArrayList<String>();
 
-		for(int i = 0; i<repCount.size(); i++)
+		for(int i = 0; i<repArr.size(); i++)
 		{
-			for(int j = 0; j < repCount.get(i); j++)
+			for(int j = 0; j < repArr.get(i); j++)
 			{
-				full.add(letters.get(i));
+				full.add(patternArr.get(i));
 			}
 		}
 		return full;
-
 	}
 
 	public static boolean isPattern(ArrayList<String> letters, ArrayList<Integer> repCount, int start, int end, int counter)
@@ -344,7 +408,7 @@ public class ShortestEncodingClass {
 		return false;
 	}
 
-	public static int getNewStartingPoint(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
+	public static int getDifference(ArrayList<String> letters, ArrayList<Integer> repsOfPatterns, int i, int counter)
 	{
 		if(repsOfPatterns.get(i)>repsOfPatterns.get(i+counter))
 		{
@@ -484,15 +548,6 @@ public class ShortestEncodingClass {
 
 
 	//---------------------------------------------------------------------------------------------------------------
-	public static Character[] makeCharArray(char[] array, int start, int end) {
-		int length = (end - start) + 1;
-		Character[] newArray = new Character[length];
-		int index = start;
-		for (int i = 0; i < length; i++) {
-			newArray[i] = array[index];
-		}
-		return newArray;
-	}
 
 	public static ArrayList<String> makeStringArray(String str) {
 
@@ -506,18 +561,6 @@ public class ShortestEncodingClass {
 		return arr;
 	}
 
-	public static void print(char[] array) {
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + " ");
-		}
-	}
-
-	public static void print(char[] array,int start, int end) {
-		for (int i = start; i <=end; i++) {
-			System.out.print(array[i] + " ");
-		}
-	}
-
 	public static char[] turnIntoCharArray(String str)
 	{
 		char[] array = new char[str.length()];
@@ -527,15 +570,5 @@ public class ShortestEncodingClass {
 		}
 
 		return array;
-	}
-
-	public static String turnIntoString(char[] arr)
-	{
-		String str = "";
-		for(int i = 0; i<arr.length; i++)
-		{
-			str = str+arr[i];
-		}
-		return str;
 	}
 }
