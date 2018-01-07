@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-
+//hello
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
