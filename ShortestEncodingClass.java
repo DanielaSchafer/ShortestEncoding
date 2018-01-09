@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-//hello
+
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class ShortestEncodingClass {
 		String expected2 =  "a9da20d";
 		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
 		String str2 =     "adddddddddadddddddddddddddddddd";
-		String str = "aaabaabaab";
+		String str = "abcabcc";
 		String expected = "a3(aab)";
 
 		System.err.println(runner(str));
@@ -199,7 +199,6 @@ public class ShortestEncodingClass {
 
 					//index is incremented so that the index is past the pattern already found (or the end of the array)
 					i = i+((reps)*pattSize)-1;
-
 				}
 
 				/*
@@ -319,9 +318,9 @@ public class ShortestEncodingClass {
 	/**
 	 * Finds the corresponding starting index in the full array from the patternArr
 	 *
-	 * @param repArr
-	 * @param letterIndex
-	 * @return
+	 * @param repArr: array of repetitions of each element in patternArr
+	 * @param letterIndex: index of element in patternArr
+	 * @return returns the index of the corresponding point in the full array assuming it is a starting point
 	 */
 	public static int getFullIndexStart(ArrayList<Integer> repArr, int letterIndex)
 	{
@@ -340,9 +339,9 @@ public class ShortestEncodingClass {
 	/**
 	 * Finds the corresponding ending index in the full array from the patternArr
 	 *
-	 * @param repArr
-	 * @param letterIndex
-	 * @return
+	 * @param repArr: array of repetitions of each element in patternArr
+	 * @param letterIndex: index of element in patternArr
+	 * @return returns the index of the corresponding point in the full array assuming it is a starting point
 	 */
 	public static int getFullIndexEnd(ArrayList<Integer> repArr, int letterIndex)
 	{
@@ -359,9 +358,9 @@ public class ShortestEncodingClass {
 	/**
 	 * expands the patternArr so that all values are repeated once
 	 *
-	 * @param patternArr
-	 * @param repArr
-	 * @return
+	 * @param patternArr: the condensed version of the original string
+	 * @param repArr: number of times each element in patternArr is repeated
+	 * @return returns the uncondensed version of patternArr array
 	 */
 	public static ArrayList<String> makeFullArray(ArrayList<String> patternArr, ArrayList<Integer> repArr)
 	{
@@ -378,18 +377,19 @@ public class ShortestEncodingClass {
 	}
 
 	/**
+	 * Determines whether a section of an array is a pattern repeated more than once
 	 *
-	 * @param letters
-	 * @param repCount
-	 * @param start
-	 * @param end
+	 * @param letters: condensed version of the original string
+	 * @param repCount: number of times each element in patternArr is repeated
+	 * @param start: starting index of the pattern
+	 * @param end: ending index of the pattern
 	 * @param counter
 	 * @return
 	 */
-	public static boolean isPattern(ArrayList<String> letters, ArrayList<Integer> repCount, int start, int end, int counter)
+	public static boolean isPattern(ArrayList<String> patternArr, ArrayList<Integer> repArr, int start, int end, int pattLength)
 	{
-		int reps = getReps(letters,start,end);
-		int reps2 = getRepsInt(repCount,start,end,(reps*counter));
+		int reps = getReps(patternArr,start,end);
+		int reps2 = getRepsInt(repArr,start,end,(reps*pattLength));
 
 		if(reps>1 && reps == reps2)
 			return true;
@@ -481,25 +481,37 @@ public class ShortestEncodingClass {
 	}
 
 
-	// Takes in the full array of letters, and checks to see how many times
-	// possPattern is a consecutive pattern in the array, starting at that index
-	public static int getReps(char[] letters, int start, int end) {
+	/**
+	 * Takes in the full array of letters, and checks to see how many times a pattern (bounded by indexes start and end) is repeated in the array
+	 *
+	 * @param patternArr: array of characters that represents the original string as an array
+	 * @param start: starting index of the pattern
+	 * @param end: ending index of the pattern
+	 * @return returns the amount of consecutive repetitions in the array after the ending point
+	 */
+	public static int getReps(char[] patternArr, int start, int end) {
 
 		int patternLength = (end - start)+1;
 		int reps = 1;
 
-		for (int i = start+patternLength; i < letters.length; i = i + patternLength) {
+		//starts at the ending point of the pattern and increases the index by the length of the pattern
+		for (int i = start+patternLength; i < patternArr.length; i = i + patternLength) {
 
 			boolean isPattern = true;
 			int patternIndex = 0;
 
+			//goes through each element of the patterns
 			for (int j = i; j < i + patternLength; j++) {
-				if (j < letters.length) {
-					if (letters[j] != letters[patternIndex + start]) {
+
+				//checks to see if the index is within bounds
+				if (j < patternArr.length) {
+					//checks to see if the element is equal to the corresponding element of the pattern
+					if (patternArr[j] != patternArr[patternIndex + start]) {
 						isPattern = false;
 						break;
 					}
 				}
+				//if it goes over the pattern and it is not the ending, then the pattern does not exist
 				else if(patternIndex<patternLength)
 				{
 					isPattern = false;
@@ -507,8 +519,10 @@ public class ShortestEncodingClass {
 				}
 				patternIndex++;
 			}
+			//breaks out of the loop if the pattern did not repeat
 			if (isPattern == false)
 				break;
+			//if the pattern repeated, increase the repetition counter
 			else
 				reps++;
 		}
@@ -516,19 +530,30 @@ public class ShortestEncodingClass {
 	}
 
 
-	// Takes in the full array of Strings, and checks to see how many times that String shows up consecutively
-	// possPattern is a consecutive pattern in the array, starting at that index
+	/**
+	 * Takes in array of strings that represent the original string
+	 * checks to see how many times a pattern (bounded by indexes start and end) is repeated in the array
+	 *
+	 * @param patternArr: array of Strings that represents the original string as an array
+	 * @param start: starting index of the pattern
+	 * @param end: ending index of the pattern
+	 * @return returns the amount of consecutive repetitions in the array after the ending point
+	 */
 	public static int getReps(ArrayList<String> letters, int start, int end) {
 
 		int patternLength = (end - start)+1;
 		int reps = 1;
 
+		//starts at the ending point of the pattern and increases the index by the length of the pattern
 		for (int i = start+patternLength; i < letters.size(); i = i + patternLength) {
 
 			boolean isPattern = true;
 			int patternIndex = 0;
 
+			//goes through each element of the patterns
 			for (int j = i; j < i + patternLength; j++) {
+
+				//checks to see if the index is within bounds
 				if (j < letters.size()) {
 					if (!letters.get(j).equals(letters.get(patternIndex + start))) {
 						isPattern = false;
