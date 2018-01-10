@@ -560,6 +560,7 @@ public class ShortestEncodingClass {
 						break;
 					}
 				}
+				//if it goes over the pattern and it is not the ending, then the pattern does not exist
 				else if(patternIndex<patternLength)
 				{
 					isPattern = false;
@@ -567,31 +568,46 @@ public class ShortestEncodingClass {
 				}
 				patternIndex++;
 			}
+			//breaks out of the loop if the pattern did not repeat
 			if (isPattern == false)
 				break;
+			//if the pattern repeated, increase the repetition counter
 			else
 				reps++;
 		}
 		return reps;
 	}
 
+	/**
+	 * Checks to see how many times a pattern of integers repeats in an array
+	 *
+	 * @param arr
+	 * @param start: starting index of the pattern
+	 * @param end: ending index of the pattern
+	 * @param ending: the max possible index that the pattern can repeat to
+	 * @return returns how many times the pattern (given by the index parameters start and end) repeats
+	 */
 	public static int getRepsInt(ArrayList<Integer> arr, int start, int end, int ending) {
 
 		int patternLength = (end - start)+1;
 		int reps = 1;
 
+		//starts at the ending point of the pattern and increases the index by the length of the pattern
 		for (int i = start+patternLength; i < ending+1; i = i + patternLength) {
 
 			boolean isPattern = true;
 			int patternIndex = 0;
 
+			//goes through each element of the patterns
 			for (int j = i; j < i + patternLength; j++) {
+				//checks to see if the index is within bounds
 				if (j < arr.size()) {
 					if (!arr.get(j).equals(arr.get(patternIndex + start))) {
 						isPattern = false;
 						break;
 					}
 				}
+				//if it goes over the pattern and it is not the ending, then the pattern does not exist
 				else if(patternIndex<patternLength-1)
 				{
 					isPattern = false;
@@ -599,8 +615,10 @@ public class ShortestEncodingClass {
 				}
 				patternIndex++;
 			}
+			//breaks out of the loop if the pattern did not repeat
 			if (isPattern == false)
 				break;
+			//if the pattern repeated, increase the repetition counter
 			else
 				reps++;
 		}
@@ -608,7 +626,7 @@ public class ShortestEncodingClass {
 	}
 
 
-	//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
 
 	public static ArrayList<String> makeStringArray(String str) {
 
