@@ -1,17 +1,34 @@
+//DANIELA SCHAFER
+//SHORTEST ENCODING OF STRINGS
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String expected3 = "3(abc)";
-		String expected2 =  "a9da20d";
-		String str3 =      "aaabbbaaabbbaaabbbaaabbb";
-		String str2 =     "adddddddddadddddddddddddddddddd";
-		String str = "abcabcc";
+		String str = "aabbaabbaabbaabb";
 		String expected = "a3(aab)";
+		String encodedStr = runner(str);
 
-		System.err.println(runner(str));
+		System.out.println(str);
+		System.out.println(encodedStr);
+		System.out.println(getPercentCompression(str,encodedStr)+"%");
+	}
+
+	/**
+	 *
+	 * @param originalStr the original string
+	 * @param encodedStr the encoded string
+	 * @return returns the percent decrease in length of the originalStr vs the encodedStr
+	 */
+	public static double getPercentCompression(String originalStr, String encodedStr)
+	{
+		double oLen = originalStr.length();
+		double eLen = encodedStr.length();
+
+		double percent = 100-(100*((oLen-eLen)/oLen));
+		return percent;
 	}
 
 	/**
@@ -108,7 +125,6 @@ public class ShortestEncodingClass {
 	 */
 	public static String getNotation(ArrayList<String> codes, ArrayList<String> patternArr, ArrayList<Integer> repArr, int pattSize, ArrayList<String> newPatternArr, ArrayList<Integer> newRepArr, HashMap<ArrayList<String>, String> keys)
 	{
-		System.out.println(patternArr+"\n"+repArr);
 		//base case: if the pattern is larger than half of patternArr length (it reaches a pattern size that is no longer possible)
 		if(pattSize >patternArr.size()/2) {
 			String patternStr = makeKey(patternArr,repArr);
@@ -397,6 +413,7 @@ public class ShortestEncodingClass {
 		return false;
 
 	}
+
 	/**
 	 *
 	 * checks to see if pattern could still exist with a starting point that is not the first when corresponding to the full array
@@ -626,20 +643,12 @@ public class ShortestEncodingClass {
 	}
 
 
-//---------------------------------------------------------------------------------------------------------------
-
-	public static ArrayList<String> makeStringArray(String str) {
-
-		ArrayList<String> arr = new ArrayList<String>();
-
-		for(int i = 0; i<str.length(); i++)
-		{
-			arr.add(Character.toString(str.charAt(i)));
-		}
-
-		return arr;
-	}
-
+	/**
+	 * Turns a String into an array of characters
+	 *
+	 * @param str
+	 * @return returns a char array of each char in str
+	 */
 	public static char[] turnIntoCharArray(String str)
 	{
 		char[] array = new char[str.length()];
