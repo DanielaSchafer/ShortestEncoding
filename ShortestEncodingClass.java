@@ -7,13 +7,16 @@ import java.util.HashMap;
 public class ShortestEncodingClass {
 
 	public static void main(String[] args) {
-		String str = "aabbaabbaabbaabb";
-		String expected = "a3(aab)";
-		String encodedStr = runner(str);
+		long start_time = System.currentTimeMillis();
+		String encodedStr = runner(args[0]);
+		long end_time = System.currentTimeMillis();
+		double difference = (end_time - start_time);
 
-		System.out.println(str);
+
+		System.out.println(args[0]);
 		System.out.println(encodedStr);
-		System.out.println(getPercentCompression(str,encodedStr)+"%");
+		System.out.println(difference);
+		System.out.println(getPercentCompression(args[0],encodedStr)+"%");
 	}
 
 	/**
